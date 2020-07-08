@@ -43,11 +43,10 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
+            atEnter={{ opacity: 1 }}
             atLeave={{ opacity: 0 }}
             atActive={{ opacity: 1 }}
-            className={styles.switchWrapper}
-            location={location}>
+            className={styles.switchWrapper}>
             <Route exact path='/' component={Home} />
             <Route exact path='/trips' component={Trips} />
             {/* TODO - add more routes for other views */}
