@@ -7,8 +7,7 @@ const OrderForm = ({ tripCost, options }) => (
 
   <Row>
     <Col xs={12}>
-      <OrderSummary tripCost={tripCost}  />
-      { console.log('lol-1', options)}
+      <OrderSummary tripCost={tripCost} options={options} />
     </Col>
   </Row>
 );

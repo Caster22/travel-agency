@@ -9,8 +9,7 @@ const OrderSummary = ({ tripCost, options }) => (
   <div>
     <h2 className={styles.component}>
       Total:
-      <strong> {/*calculateTotal(formatPrice(tripCost), options)*/}</strong>
-      {console.log('wtf', calculateTotal(formatPrice(tripCost), options))}
+      <strong> {calculateTotal(formatPrice(tripCost), options)}</strong>
     </h2>
   </div>
 );
