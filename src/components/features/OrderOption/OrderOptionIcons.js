@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {formatPrice} from '../../../utils/formatPrice';
 import Icon from '../../common/Icon/Icon';
 
-const  OrderOptionIcons = ({values, required, setOptionValue}) => (
+const  OrderOptionIcons = ({values, required, currentValue, setOptionValue}) => (
   <div
     className={styles.icon}
   >
@@ -20,7 +20,7 @@ const  OrderOptionIcons = ({values, required, setOptionValue}) => (
     )}
     {values.map(value => (
       <div
-        className={styles.icon}
+        className={styles.icon + (currentValue === value.id ? ' ' + styles.iconActive : '')}
         key={value.id}
         value={value.id}
         onClick={event => setOptionValue(event.currentTarget.id)}
@@ -35,6 +35,7 @@ OrderOptionIcons.propTypes = {
   values: PropTypes.array,
   setOptionValue: PropTypes.func,
   required: PropTypes.bool,
+  currentValue: PropTypes.string,
 };
 
 export default OrderOptionIcons;

@@ -17,6 +17,9 @@ const OrderForm = ({ tripCost, options, setOrderOption }) => (
           setOrderOption={setOrderOption}
           values={pricingData.values}
           required={pricingData.required}
+          limits={pricingData.limits}
+          personCost={pricingData.price}
+          tripCost={tripCost}
         />
       </Col>
     ))}

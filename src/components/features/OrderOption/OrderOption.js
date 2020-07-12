@@ -13,7 +13,7 @@ const optionTypes = {
   number: OrderOptionNumber,
 };
 
-const OrderOption = ({id, setOrderOption, required, values, name, type, ...otherProps}) => {
+const OrderOption = ({id, setOrderOption, tripCost, personCost, limits, required, values, name, type, ...otherProps}) => {
 
   const OptionComponent = optionTypes[type];
   if (!OptionComponent) {
@@ -26,6 +26,9 @@ const OrderOption = ({id, setOrderOption, required, values, name, type, ...other
           {...otherProps}
           values={values}
           required={required}
+          limits={limits}
+          price={personCost}
+          tripCost={tripCost}
           setOptionValue={value => setOrderOption({[id]: value})}
         />
       </div>
