@@ -5,16 +5,19 @@ import OrderOptionDropdown from '../OrderOption/OrderOptionDropdown';
 import OrderOptionIcons from '../OrderOption/OrderOptionIcons';
 import OrderOptionNumber from '../OrderOption/OrderOptionNumber';
 import OrderOptionCheckboxes from '../OrderOption/OrderOptionCheckboxes';
+import OrderOptionDate from './OrderOptionDate';
+import OrderOptionText from './OrderOptiontext';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
   checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
+  date: OrderOptionDate,
+  text: OrderOptionText,
 };
 
-const OrderOption = ({id, setOrderOption, tripCost, personCost, limits, required, values, name, type, ...otherProps}) => {
-
+const OrderOption = ({ name, type, id, setOrderOption, ...otherProps }) => {
   const OptionComponent = optionTypes[type];
   if (!OptionComponent) {
     return null;
@@ -24,12 +27,8 @@ const OrderOption = ({id, setOrderOption, tripCost, personCost, limits, required
         <h3 className={styles.title}>{name}</h3>
         <OptionComponent
           {...otherProps}
-          values={values}
-          required={required}
-          limits={limits}
-          price={personCost}
-          tripCost={tripCost}
-          setOptionValue={value => setOrderOption({[id]: value})}
+          id={id}
+          setOptionValue={(value) => setOrderOption({ [id]: value })}
         />
       </div>
     );
@@ -38,7 +37,5 @@ const OrderOption = ({id, setOrderOption, tripCost, personCost, limits, required
 
 OrderOption.propTypes = {
   name: PropTypes.string,
-  values: PropTypes.array,
-  required: PropTypes.bool,
 };
 export default OrderOption;
