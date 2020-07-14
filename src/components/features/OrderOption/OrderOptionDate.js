@@ -8,7 +8,6 @@ class OrderOptionDate extends React.Component {
   };
 
   static propTypes = {
-    currentValue: PropTypes.string,
     setOptionValue: PropTypes.func,
   }
 
@@ -16,6 +15,7 @@ class OrderOptionDate extends React.Component {
     this.setState({
       startDate: date,
     });
+    this.props.setOptionValue(date);
   };
 
   render() {
