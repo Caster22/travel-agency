@@ -53,16 +53,11 @@ describe('Component TripSummary', () => {
     expect(renderedTag3).toEqual(testTags[2]);
   });
 
-  it('throw error if tags are missing or array is empty', () => {
+  it('should not render div if tag is uncorrect', () => {
     const testTags = [];
     const component = shallow(<TripSummary tags={testTags} />);
+
+    expect(component.find('.tags')).toEqual({});
     console.log(component.debug());
-
-    const renderedTags = component.find('.tags').text();
-    expect(renderedTags).not.toEqual(<span>{testTags[0]}</span>);
-
-    const component2 = shallow(<TripSummary name='name' />);
-    const renderedWithoutTags = component2.find('.tags').text();
-    expect(renderedWithoutTags).not.toEqual(<span></span>);
   });
 });
