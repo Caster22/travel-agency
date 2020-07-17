@@ -58,6 +58,5 @@ describe('Component TripSummary', () => {
     const component = shallow(<TripSummary tags={testTags} />);
 
     expect(component.find('.tags')).toEqual({});
-    console.log(component.debug());
   });
 });

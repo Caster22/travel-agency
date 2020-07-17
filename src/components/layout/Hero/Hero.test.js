@@ -27,7 +27,6 @@ describe('Component Hero', () => {
   it('renders correct classNames', () => {
     const mockVariants = 'small dummy';
     const component = shallow(<Hero imageSrc='image.jpg' titleText='Lorem' variant={mockVariants} />);
-    console.log(component.debug());
 
     expect(component.hasClass('component')).toBe(true);
     expect(component.hasClass('small')).toBe(true);
