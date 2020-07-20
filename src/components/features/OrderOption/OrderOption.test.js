@@ -76,10 +76,12 @@ for(let type in optionTypes){
     let subcomponent;
     // eslint-disable-next-line no-unused-vars
     let renderedSubcomponent;
+    let mockSetOrderOption;
 
     beforeEach(() => {
       component = shallow(<OrderOption
         type={type}
+        setOrderOption={mockSetOrderOption} /* 3 */
         {...mockProps}
         {...mockPropsForType[type]}
       />
