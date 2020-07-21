@@ -95,8 +95,8 @@ for(let type in optionTypes){
     it(`renders ${optionTypes[type]}`, () => {
       expect(subcomponent).toBeTruthy();
       expect(subcomponent.length).toBe(1);
-      console.log(component.debug());
-      console.log(subcomponent.debug());
+      //console.log(component.debug());
+      //console.log(subcomponent.debug());
     });
 
     /* type-specific tests */
@@ -106,9 +106,11 @@ for(let type in optionTypes){
         it('contains select and options', () => {
           const select = renderedSubcomponent.find('select');
           expect(select.length).toBe(1);
+          //console.log(renderedSubcomponent.debug());
 
           const emptyOption = select.find('option[value=""]').length;
           expect(emptyOption).toBe(1);
+
 
           const options = select.find('option').not('[value=""]');
           expect(options.length).toBe(mockProps.values.length);
@@ -121,7 +123,25 @@ for(let type in optionTypes){
           expect(mockSetOrderOption).toBeCalledTimes(1);
           expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
+        break;
+      }
 
+      case 'icons': {
+        it('contains div with class icon and Icon', () => {
+          const iconDiv = renderedSubcomponent.find('.icon').at(0);
+          expect(iconDiv.length).toBe(1);
+
+          const icon = iconDiv.find('Icon[name="times-circle"]');
+          expect(icon.length).toBe(1);
+          //console.log(iconDiv.debug());
+        });
+
+        it('should run setOrderOption function on Click', () => {
+          console.log(renderedSubcomponent.find('.icon').last().debug());
+
+          renderedSubcomponent.find('.icon').last().simulate('click');
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+        });
         break;
       }
     }
