@@ -148,7 +148,7 @@ for(let type in optionTypes){
         it('contains div with class checkboxes and input type="checkbox" ', () => {
           const checkboxDiv = renderedSubcomponent.find('.checkboxes');
           expect(checkboxDiv.length).toBe(1);
-          console.log(checkboxDiv.debug());
+          //console.log(checkboxDiv.debug());
 
           const checkboxInput = checkboxDiv.find('input[type="checkbox"]');
           expect(checkboxInput.length).toBe(2);
@@ -198,8 +198,9 @@ for(let type in optionTypes){
 
       case 'date': {
         it('contain DatePicker', () => {
-          //const datePicker = renderedSubcomponent.find(Datepicker);
-          //console.log(datePicker.debug());
+          const datePicker = renderedSubcomponent.find('Datepicker');
+          console.log(datePicker.debug());
+          expect(datePicker.length).toBe(1);
         });
       }
     }
