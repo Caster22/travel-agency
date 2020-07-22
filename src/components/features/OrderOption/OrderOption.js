@@ -6,7 +6,7 @@ import OrderOptionIcons from '../OrderOption/OrderOptionIcons';
 import OrderOptionNumber from '../OrderOption/OrderOptionNumber';
 import OrderOptionCheckboxes from '../OrderOption/OrderOptionCheckboxes';
 import OrderOptionDate from './OrderOptionDate';
-import OrderOptionText from './OrderOptiontext';
+import OrderOptionText from './OrderOptionText';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
