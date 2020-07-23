@@ -8,8 +8,8 @@ import Button from '../../common/Button/Button';
 import {formatPrice} from '../../../utils/formatPrice';
 import {calculateTotal} from '../../../utils/calculateTotal';
 import settings from '../../../data/settings';
-import Toast from '../../common/Toast/Toast';
-import testList from '../../common/Toast/TestList';
+import Toast from 'light-toast';
+
 
 
 
@@ -18,8 +18,9 @@ const sendOrder = (options, tripName, tripCode, tripId, tripCost) => {
 
   if (options.name == '' || options.contact == ''){
     console.log('nie wysłano');
-
+    Toast.fail('Please write your Name and Adress!', 1500);
   } else {
+    Toast.success('Your Order was taken successfully!', 1500);
     const payload = {
       ...options,
       totalCost,
@@ -63,10 +64,6 @@ const OrderForm = ({ tripCost, tripId, tripCode, tripName, options, setOrderOpti
       <OrderSummary tripCost={tripCost} options={options} />
     </Col>
     <Button onClick={() => sendOrder(options, tripName, tripCode, tripId, tripCost)}>Order now !</Button>
-    <Toast
-      toastList={testList}
-      position='bottom-right'
-    />
   </Row>
 );
 
