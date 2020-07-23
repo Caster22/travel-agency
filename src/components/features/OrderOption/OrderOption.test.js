@@ -199,7 +199,7 @@ for(let type in optionTypes){
       case 'date': {
         it('contain DatePicker', () => {
           const datePicker = renderedSubcomponent.find(DatePicker);
-          console.log(datePicker.debug());
+          //console.log(datePicker.debug());
           expect(datePicker.length).toBe(1);
         });
 
