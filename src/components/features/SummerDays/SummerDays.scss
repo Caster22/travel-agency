@@ -1,0 +1,18 @@
+.component {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.days, .summerPromo {
+  position: absolute;
+  width: 100%;
+}
+
+.summerPromo {
+  top: 40px;
+}
+
+.days {
+  top: 10px;
+}

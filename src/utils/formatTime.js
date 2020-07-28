@@ -4,11 +4,11 @@ export const formatTime = (seconds) => {
   } else if (seconds < 0) {
     return null;
   } else {
-    return formatEngine(seconds);
+    return formatTimeEngine(seconds);
   }
 };
 
-const formatEngine = seconds => {
+const formatTimeEngine = seconds => {
 
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor(seconds / 60) % 60;
@@ -19,3 +19,30 @@ const formatEngine = seconds => {
     .join(':');
 };
 
+export const formatDate = (days) => {
+  if (days == null) {
+    return null;
+  } else if (days <= 0) {
+    return '';
+  } else {
+    return formatDateEngine(days);
+  }
+};
+
+const formatDateEngine = days => {
+  if (days > 1) {
+    return days + ' days to summer!';
+  } else {
+    return days + ' day to summer!';
+  }
+};
+
+
+
+
+/*
+return leftToSummer + ' days to summer!';
+} else {
+  return leftToSummer + ' day to summer!';
+}
+*/
